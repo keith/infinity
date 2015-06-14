@@ -1,0 +1,37 @@
+diff --git i/Keyboards/infinity.bash w/Keyboards/infinity.bash
+index 259183f..6534f5a 100755
+--- i/Keyboards/infinity.bash
++++ w/Keyboards/infinity.bash
+@@ -21,7 +21,7 @@ BaseMap="defaultMap"
+ # This is the default layer of the keyboard
+ # NOTE: To combine kll files into a single layout, separate them by spaces
+ # e.g.  DefaultMap="mylayout mylayoutmod"
+-DefaultMap="md1Overlay stdFuncMap"
++DefaultMap="base-0 stdFuncMap"
+ 
+ # This is where you set the additional layers
+ # NOTE: Indexing starts at 1
+@@ -29,7 +29,7 @@ DefaultMap="md1Overlay stdFuncMap"
+ # e.g.  PartialMaps[1]="layer1 layer1mod"
+ #       PartialMaps[2]="layer2"
+ #       PartialMaps[3]="layer3"
+-PartialMaps[1]="hhkbpro2"
++PartialMaps[1]="functions-1"
+ 
+ 
+ 
+diff --git i/Lib/CMake/arm.cmake w/Lib/CMake/arm.cmake
+index 3efbe7c..06e2a27 100644
+--- i/Lib/CMake/arm.cmake
++++ w/Lib/CMake/arm.cmake
+@@ -15,8 +15,8 @@
+ include( CMakeForceCompiler )
+ message( STATUS "Compiler Selected:" )
+ if ( "${COMPILER}" MATCHES "gcc" )
+-	cmake_force_c_compiler  ( arm-none-eabi-gcc ARMCCompiler )
+-	cmake_force_cxx_compiler( arm-none-eabi-g++ ARMCxxCompiler )
++	cmake_force_c_compiler  ( /usr/local/bin/arm-none-eabi-gcc ARMCCompiler )
++	cmake_force_cxx_compiler( /usr/local/bin/arm-none-eabi-g++ ARMCxxCompiler )
+ 	set( _CMAKE_TOOLCHAIN_PREFIX arm-none-eabi- )
+ 	message( "gcc" )
+ elseif ( "${COMPILER}" MATCHES "clang" )
